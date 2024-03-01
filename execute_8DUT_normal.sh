@@ -1,6 +1,7 @@
 #!/bin/bash
 
-FIO_DIRECTORY="/home/tester/AKS"
+FIO_DIRECTORY="/home/tester/AKS/DUT_FIO"
+FIO_LOG_DIRECTORY="/home/tester/AKS/logs"
 CGROUP_DIRECTORY="/sys/fs/cgroup"
 
 for iteration in {0..2..1}
@@ -28,14 +29,14 @@ do
     g="DUT7_PSR_CHECK.txt"
     h="DUT8_PSR_CHECK.txt"
     
-    fio $FIO_DIRECTORY/DUT1.txt --eta-newline=1 --eta=always > logs/${f1} & CURR_PID=$! ; echo "FIO 1 : $CURR_PID" ; for i in {1..300}; do echo $(ps -o psr $CURR_PID) >> logs/${a} ; sleep 1; done &
-    fio $FIO_DIRECTORY/DUT2.txt --eta-newline=1 --eta=always > logs/${f2} & CURR_PID=$! ; echo "FIO 2 : $CURR_PID" ; for i in {1..300}; do echo $(ps -o psr $CURR_PID) >> logs/${b} ; sleep 1; done &
-    fio $FIO_DIRECTORY/DUT3.txt --eta-newline=1 --eta=always > logs/${f3} & CURR_PID=$! ; echo "FIO 3 : $CURR_PID" ; for i in {1..300}; do echo $(ps -o psr $CURR_PID) >> logs/${c} ; sleep 1; done &
-    fio $FIO_DIRECTORY/DUT4.txt --eta-newline=1 --eta=always > logs/${f4} & CURR_PID=$! ; echo "FIO 4 : $CURR_PID" ; for i in {1..300}; do echo $(ps -o psr $CURR_PID) >> logs/${d} ; sleep 1; done &
-    fio $FIO_DIRECTORY/DUT5.txt --eta-newline=1 --eta=always > logs/${f5} & CURR_PID=$! ; echo "FIO 5 : $CURR_PID" ; for i in {1..300}; do echo $(ps -o psr $CURR_PID) >> logs/${e} ; sleep 1; done &
-    fio $FIO_DIRECTORY/DUT6.txt --eta-newline=1 --eta=always > logs/${f6} & CURR_PID=$! ; echo "FIO 6 : $CURR_PID" ; for i in {1..300}; do echo $(ps -o psr $CURR_PID) >> logs/${f} ; sleep 1; done &
-    fio $FIO_DIRECTORY/DUT7.txt --eta-newline=1 --eta=always > logs/${f7} & CURR_PID=$! ; echo "FIO 7 : $CURR_PID" ; for i in {1..300}; do echo $(ps -o psr $CURR_PID) >> logs/${g} ; sleep 1; done &
-    fio $FIO_DIRECTORY/DUT8.txt --eta-newline=1 --eta=always > logs/${f8} & CURR_PID=$! ; echo "FIO 8 : $CURR_PID" ; for i in {1..300}; do echo $(ps -o psr $CURR_PID) >> logs/${h} ; sleep 1; done &
+    fio $FIO_DIRECTORY/DUT1.txt --eta-newline=1 --eta=always > ${FIO_LOG_DIRECTORY}/${f1} & CURR_PID=$! ; echo "FIO 1 : $CURR_PID" ; for i in {1..300}; do echo $(ps -o psr $CURR_PID) >> ${FIO_LOG_DIRECTORY}/${a} ; sleep 1; done &
+    fio $FIO_DIRECTORY/DUT2.txt --eta-newline=1 --eta=always > ${FIO_LOG_DIRECTORY}/${f2} & CURR_PID=$! ; echo "FIO 2 : $CURR_PID" ; for i in {1..300}; do echo $(ps -o psr $CURR_PID) >> ${FIO_LOG_DIRECTORY}/${b} ; sleep 1; done &
+    fio $FIO_DIRECTORY/DUT3.txt --eta-newline=1 --eta=always > ${FIO_LOG_DIRECTORY}/${f3} & CURR_PID=$! ; echo "FIO 3 : $CURR_PID" ; for i in {1..300}; do echo $(ps -o psr $CURR_PID) >> ${FIO_LOG_DIRECTORY}/${c} ; sleep 1; done &
+    fio $FIO_DIRECTORY/DUT4.txt --eta-newline=1 --eta=always > ${FIO_LOG_DIRECTORY}/${f4} & CURR_PID=$! ; echo "FIO 4 : $CURR_PID" ; for i in {1..300}; do echo $(ps -o psr $CURR_PID) >> ${FIO_LOG_DIRECTORY}/${d} ; sleep 1; done &
+    fio $FIO_DIRECTORY/DUT5.txt --eta-newline=1 --eta=always > ${FIO_LOG_DIRECTORY}/${f5} & CURR_PID=$! ; echo "FIO 5 : $CURR_PID" ; for i in {1..300}; do echo $(ps -o psr $CURR_PID) >> ${FIO_LOG_DIRECTORY}/${e} ; sleep 1; done &
+    fio $FIO_DIRECTORY/DUT6.txt --eta-newline=1 --eta=always > ${FIO_LOG_DIRECTORY}/${f6} & CURR_PID=$! ; echo "FIO 6 : $CURR_PID" ; for i in {1..300}; do echo $(ps -o psr $CURR_PID) >> ${FIO_LOG_DIRECTORY}/${f} ; sleep 1; done &
+    fio $FIO_DIRECTORY/DUT7.txt --eta-newline=1 --eta=always > ${FIO_LOG_DIRECTORY}/${f7} & CURR_PID=$! ; echo "FIO 7 : $CURR_PID" ; for i in {1..300}; do echo $(ps -o psr $CURR_PID) >> ${FIO_LOG_DIRECTORY}/${g} ; sleep 1; done &
+    fio $FIO_DIRECTORY/DUT8.txt --eta-newline=1 --eta=always > ${FIO_LOG_DIRECTORY}/${f8} & CURR_PID=$! ; echo "FIO 8 : $CURR_PID" ; for i in {1..300}; do echo $(ps -o psr $CURR_PID) >> ${FIO_LOG_DIRECTORY}/${h} ; sleep 1; done &
     
     
     sleep 310
