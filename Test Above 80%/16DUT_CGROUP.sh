@@ -65,7 +65,7 @@ do
     fio $FIO_DIRECTORY/DUT15.txt --eta-newline=1 --eta=always > ${FIO_LOG_DIRECTORY}/${f15} & CURR_PID=$! ; echo "FIO 7 : $CURR_PID" ; echo $CURR_PID > /sys/fs/cgroup/DUT15/cgroup.procs ; for i in {1..300}; do echo $(ps -o psr $CURR_PID) >> ${FIO_LOG_DIRECTORY}/${o} ; sleep 1; done &
     fio $FIO_DIRECTORY/DUT16.txt --eta-newline=1 --eta=always > ${FIO_LOG_DIRECTORY}/${f16} & CURR_PID=$! ; echo "FIO 8 : $CURR_PID" ; echo $CURR_PID > /sys/fs/cgroup/DUT16/cgroup.procs ; for i in {1..300}; do echo $(ps -o psr $CURR_PID) >> ${FIO_LOG_DIRECTORY}/${p} ; sleep 1; done &
 
-    sleep 310
+    sleep 125
     
     # grep "iops        : min=" DUT1_RUN0_Log.txt DUT2_RUN0_Log.txt DUT3_RUN0_Log.txt DUT4_RUN0_Log.txt | awk '{print $6}' > Iteration0_iops.txt
     
