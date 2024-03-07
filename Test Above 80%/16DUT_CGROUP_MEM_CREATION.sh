@@ -8,14 +8,14 @@ CGROUP_NAME5="DUT5"
 CGROUP_NAME6="DUT6"
 CGROUP_NAME7="DUT7"
 CGROUP_NAME8="DUT8"
-# CGROUP_NAME9="DUT9"
-# CGROUP_NAME10="DUT10"
-# CGROUP_NAME11="DUT11"
-# CGROUP_NAME12="DUT12"
-# CGROUP_NAME13="DUT13"
-# CGROUP_NAME14="DUT14"
-# CGROUP_NAME15="DUT15"
-# CGROUP_NAME16="DUT16"
+CGROUP_NAME9="DUT9"
+CGROUP_NAME10="DUT10"
+CGROUP_NAME11="DUT11"
+CGROUP_NAME12="DUT12"
+CGROUP_NAME13="DUT13"
+CGROUP_NAME14="DUT14"
+CGROUP_NAME15="DUT15"
+CGROUP_NAME16="DUT16"
 
 
 MOUNT_POINT="/sys/fs/cgroup"
@@ -34,14 +34,14 @@ chmod a+rx $CGROUP_NAME5
 chmod a+rx $CGROUP_NAME6
 chmod a+rx $CGROUP_NAME7
 chmod a+rx $CGROUP_NAME8
-# chmod a+rx $CGROUP_NAME9
-# chmod a+rx $CGROUP_NAME10
-# chmod a+rx $CGROUP_NAME11
-# chmod a+rx $CGROUP_NAME12
-# chmod a+rx $CGROUP_NAME13
-# chmod a+rx $CGROUP_NAME14
-# chmod a+rx $CGROUP_NAME15
-# chmod a+rx $CGROUP_NAME16
+chmod a+rx $CGROUP_NAME9
+chmod a+rx $CGROUP_NAME10
+chmod a+rx $CGROUP_NAME11
+chmod a+rx $CGROUP_NAME12
+chmod a+rx $CGROUP_NAME13
+chmod a+rx $CGROUP_NAME14
+chmod a+rx $CGROUP_NAME15
+chmod a+rx $CGROUP_NAME16
 
 echo "Mounting cgroups at $MOUNT_POINT/$CGROUP_NAME1"
 echo "Mounting cgroups at $MOUNT_POINT/$CGROUP_NAME2"
@@ -51,14 +51,14 @@ echo "Mounting cgroups at $MOUNT_POINT/$CGROUP_NAME5"
 echo "Mounting cgroups at $MOUNT_POINT/$CGROUP_NAME6"
 echo "Mounting cgroups at $MOUNT_POINT/$CGROUP_NAME7"
 echo "Mounting cgroups at $MOUNT_POINT/$CGROUP_NAME8"
-# echo "Mounting cgroups at $MOUNT_POINT/$CGROUP_NAME9"
-# echo "Mounting cgroups at $MOUNT_POINT/$CGROUP_NAME10"
-# echo "Mounting cgroups at $MOUNT_POINT/$CGROUP_NAME11"
-# echo "Mounting cgroups at $MOUNT_POINT/$CGROUP_NAME12"
-# echo "Mounting cgroups at $MOUNT_POINT/$CGROUP_NAME13"
-# echo "Mounting cgroups at $MOUNT_POINT/$CGROUP_NAME14"
-# echo "Mounting cgroups at $MOUNT_POINT/$CGROUP_NAME15"
-# echo "Mounting cgroups at $MOUNT_POINT/$CGROUP_NAME16"
+echo "Mounting cgroups at $MOUNT_POINT/$CGROUP_NAME9"
+echo "Mounting cgroups at $MOUNT_POINT/$CGROUP_NAME10"
+echo "Mounting cgroups at $MOUNT_POINT/$CGROUP_NAME11"
+echo "Mounting cgroups at $MOUNT_POINT/$CGROUP_NAME12"
+echo "Mounting cgroups at $MOUNT_POINT/$CGROUP_NAME13"
+echo "Mounting cgroups at $MOUNT_POINT/$CGROUP_NAME14"
+echo "Mounting cgroups at $MOUNT_POINT/$CGROUP_NAME15"
+echo "Mounting cgroups at $MOUNT_POINT/$CGROUP_NAME16"
 
 
 echo "Aviable controller types:"
@@ -123,6 +123,23 @@ CORE_VAL16=33-36
 # CORE_VAL7=6
 # CORE_VAL8=7
 
+MEM_VAL1=8G
+MEM_VAL2=8G
+MEM_VAL3=8G
+MEM_VAL4=8G
+MEM_VAL5=8G
+MEM_VAL6=8G
+MEM_VAL7=8G
+MEM_VAL8=8G
+MEM_VAL9=8G
+MEM_VAL10=8G
+MEM_VAL11=8G
+MEM_VAL12=8G
+MEM_VAL13=8G
+MEM_VAL14=8G
+MEM_VAL15=8G
+MEM_VAL16=8G
+
 
 echo $CORE_VAL1 > /sys/fs/cgroup/$CGROUP_NAME1/cpuset.cpus
 echo $CORE_VAL2 > /sys/fs/cgroup/$CGROUP_NAME2/cpuset.cpus
@@ -132,14 +149,31 @@ echo $CORE_VAL5 > /sys/fs/cgroup/$CGROUP_NAME5/cpuset.cpus
 echo $CORE_VAL6 > /sys/fs/cgroup/$CGROUP_NAME6/cpuset.cpus
 echo $CORE_VAL7 > /sys/fs/cgroup/$CGROUP_NAME7/cpuset.cpus
 echo $CORE_VAL8 > /sys/fs/cgroup/$CGROUP_NAME8/cpuset.cpus
-# echo $CORE_VAL9 > /sys/fs/cgroup/$CGROUP_NAME9/cpuset.cpus
-# echo $CORE_VAL10 > /sys/fs/cgroup/$CGROUP_NAME10/cpuset.cpus
-# echo $CORE_VAL11 > /sys/fs/cgroup/$CGROUP_NAME11/cpuset.cpus
-# echo $CORE_VAL12 > /sys/fs/cgroup/$CGROUP_NAME12/cpuset.cpus
-# echo $CORE_VAL13 > /sys/fs/cgroup/$CGROUP_NAME13/cpuset.cpus
-# echo $CORE_VAL14 > /sys/fs/cgroup/$CGROUP_NAME14/cpuset.cpus
-# echo $CORE_VAL15 > /sys/fs/cgroup/$CGROUP_NAME15/cpuset.cpus
-# echo $CORE_VAL16 > /sys/fs/cgroup/$CGROUP_NAME16/cpuset.cpus
+echo $CORE_VAL9 > /sys/fs/cgroup/$CGROUP_NAME9/cpuset.cpus
+echo $CORE_VAL10 > /sys/fs/cgroup/$CGROUP_NAME10/cpuset.cpus
+echo $CORE_VAL11 > /sys/fs/cgroup/$CGROUP_NAME11/cpuset.cpus
+echo $CORE_VAL12 > /sys/fs/cgroup/$CGROUP_NAME12/cpuset.cpus
+echo $CORE_VAL13 > /sys/fs/cgroup/$CGROUP_NAME13/cpuset.cpus
+echo $CORE_VAL14 > /sys/fs/cgroup/$CGROUP_NAME14/cpuset.cpus
+echo $CORE_VAL15 > /sys/fs/cgroup/$CGROUP_NAME15/cpuset.cpus
+echo $CORE_VAL16 > /sys/fs/cgroup/$CGROUP_NAME16/cpuset.cpus
+
+echo $MEM_VAL1 > /sys/fs/cgroup/$CGROUP_NAME1/memory.max
+echo $MEM_VAL2 > /sys/fs/cgroup/$CGROUP_NAME2/memory.max
+echo $MEM_VAL3 > /sys/fs/cgroup/$CGROUP_NAME3/memory.max
+echo $MEM_VAL4 > /sys/fs/cgroup/$CGROUP_NAME4/memory.max
+echo $MEM_VAL5 > /sys/fs/cgroup/$CGROUP_NAME5/memory.max
+echo $MEM_VAL6 > /sys/fs/cgroup/$CGROUP_NAME6/memory.max
+echo $MEM_VAL7 > /sys/fs/cgroup/$CGROUP_NAME7/memory.max
+echo $MEM_VAL8 > /sys/fs/cgroup/$CGROUP_NAME8/memory.max
+echo $MEM_VAL9 > /sys/fs/cgroup/$CGROUP_NAME9/memory.max
+echo $MEM_VAL10 > /sys/fs/cgroup/$CGROUP_NAME10/memory.max
+echo $MEM_VAL11 > /sys/fs/cgroup/$CGROUP_NAME11/memory.max
+echo $MEM_VAL12 > /sys/fs/cgroup/$CGROUP_NAME12/memory.max
+echo $MEM_VAL13 > /sys/fs/cgroup/$CGROUP_NAME13/memory.max
+echo $MEM_VAL14 > /sys/fs/cgroup/$CGROUP_NAME14/memory.max
+echo $MEM_VAL15 > /sys/fs/cgroup/$CGROUP_NAME15/memory.max
+echo $MEM_VAL16 > /sys/fs/cgroup/$CGROUP_NAME16/memory.max
 
 
 

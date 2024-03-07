@@ -4,7 +4,7 @@ FIO_DIRECTORY="/home/tester/AKS/DUT_FIO"
 FIO_LOG_DIRECTORY="/home/tester/AKS/logs"
 CGROUP_DIRECTORY="/sys/fs/cgroup"
 
-for iteration in {0..2..1}
+for iteration in {0..4..1}
 do
     echo "Moving into FIO file Directory"
     cd $FIO_DIRECTORY
@@ -21,14 +21,14 @@ do
     f6="DUT6_RUN${iteration}_Log.txt"
     f7="DUT7_RUN${iteration}_Log.txt"
     f8="DUT8_RUN${iteration}_Log.txt"
-    # f9="DUT9_RUN${iteration}_Log.txt"
-    # f10="DUT10_RUN${iteration}_Log.txt"
-    # f11="DUT11_RUN${iteration}_Log.txt"
-    # f12="DUT12_RUN${iteration}_Log.txt"
-    # f13="DUT13_RUN${iteration}_Log.txt"
-    # f14="DUT14_RUN${iteration}_Log.txt"
-    # f15="DUT15_RUN${iteration}_Log.txt"
-    # f16="DUT16_RUN${iteration}_Log.txt"
+    f9="DUT9_RUN${iteration}_Log.txt"
+    f10="DUT10_RUN${iteration}_Log.txt"
+    f11="DUT11_RUN${iteration}_Log.txt"
+    f12="DUT12_RUN${iteration}_Log.txt"
+    f13="DUT13_RUN${iteration}_Log.txt"
+    f14="DUT14_RUN${iteration}_Log.txt"
+    f15="DUT15_RUN${iteration}_Log.txt"
+    f16="DUT16_RUN${iteration}_Log.txt"
     
     a="DUT1_PSR_CHECK.txt"
     b="DUT2_PSR_CHECK.txt"
@@ -38,34 +38,33 @@ do
     f="DUT6_PSR_CHECK.txt"
     g="DUT7_PSR_CHECK.txt"
     h="DUT8_PSR_CHECK.txt"
-    # i="DUT9_PSR_CHECK.txt"
-    # j="DUT10_PSR_CHECK.txt"
-    # k="DUT11_PSR_CHECK.txt"
-    # l="DUT12_PSR_CHECK.txt"
-    # m="DUT13_PSR_CHECK.txt"
-    # n="DUT14_PSR_CHECK.txt"
-    # o="DUT15_PSR_CHECK.txt"
-    # p="DUT16_PSR_CHECK.txt"
+    i="DUT9_PSR_CHECK.txt"
+    j="DUT10_PSR_CHECK.txt"
+    k="DUT11_PSR_CHECK.txt"
+    l="DUT12_PSR_CHECK.txt"
+    m="DUT13_PSR_CHECK.txt"
+    n="DUT14_PSR_CHECK.txt"
+    o="DUT15_PSR_CHECK.txt"
+    p="DUT16_PSR_CHECK.txt"
     
-    # node 1
-    numa_DUT_1=0-1
-    numa_DUT_2=2-3
-    numa_DUT_3=4-5
-    numa_DUT_4=6-7
-    numa_DUT_5=8-9
-    numa_DUT_6=10-11
-    numa_DUT_7=12-13
-    numa_DUT_8=14-15
-
-    # node 2
-    # numa_DUT_9=32-33
-    # numa_DUT_10=34-35
-    # numa_DUT_11=36-37
-    # numa_DUT_12=38-39
-    # numa_DUT_13=40-41
-    # numa_DUT_14=42-43
-    # numa_DUT_15=44-45
-    # numa_DUT_16=46-47
+    # node 0 [DUT 1 to DUT 8]
+    # node 1 [DUT 9 to DUT 16]
+    numa_DUT_1=0-3
+    numa_DUT_2=4-7
+    numa_DUT_3=8-11
+    numa_DUT_4=12-15
+    numa_DUT_5=64-67
+    numa_DUT_6=68-71
+    numa_DUT_7=72-75
+    numa_DUT_8=76-79
+    numa_DUT_9=108-111
+    numa_DUT_10=104-107
+    numa_DUT_11=100-103
+    numa_DUT_12=96-99
+    numa_DUT_13=45-48
+    numa_DUT_14=41-44
+    numa_DUT_15=37-40
+    numa_DUT_16=33-36
     
     
     numactl --physcpubind=$numa_DUT_1 fio $FIO_DIRECTORY/DUT1.txt --eta-newline=1 --eta=always > ${FIO_LOG_DIRECTORY}/${f1} & CURR_PID=$! ; echo "FIO 1 : $CURR_PID" ; for i in {1..300}; do echo $(ps -o psr $CURR_PID) >> ${FIO_LOG_DIRECTORY}/${a} ; sleep 1; done &
@@ -78,15 +77,15 @@ do
     numactl --physcpubind=$numa_DUT_7 fio $FIO_DIRECTORY/DUT7.txt --eta-newline=1 --eta=always > ${FIO_LOG_DIRECTORY}/${f7} & CURR_PID=$! ; echo "FIO 7 : $CURR_PID" ; for i in {1..300}; do echo $(ps -o psr $CURR_PID) >> ${FIO_LOG_DIRECTORY}/${g} ; sleep 1; done &
     numactl --physcpubind=$numa_DUT_8 fio $FIO_DIRECTORY/DUT8.txt --eta-newline=1 --eta=always > ${FIO_LOG_DIRECTORY}/${f8} & CURR_PID=$! ; echo "FIO 8 : $CURR_PID" ; for i in {1..300}; do echo $(ps -o psr $CURR_PID) >> ${FIO_LOG_DIRECTORY}/${h} ; sleep 1; done &
     
-    # numactl --physcpubind=$numa_DUT_9 fio $FIO_DIRECTORY/DUT9.txt --eta-newline=1 --eta=always > ${FIO_LOG_DIRECTORY}/${f9} & CURR_PID=$! ; echo "FIO 9 : $CURR_PID" ; for i in {1..300}; do echo $(ps -o psr $CURR_PID) >> ${FIO_LOG_DIRECTORY}/${i} ; sleep 1; done &
-    # numactl --physcpubind=$numa_DUT_10 fio $FIO_DIRECTORY/DUT10.txt --eta-newline=1 --eta=always > ${FIO_LOG_DIRECTORY}/${f10} & CURR_PID=$! ; echo "FIO 10 : $CURR_PID" ; for i in {1..300}; do echo $(ps -o psr $CURR_PID) >> ${FIO_LOG_DIRECTORY}/${j} ; sleep 1; done &
-    # numactl --physcpubind=$numa_DUT_11 fio $FIO_DIRECTORY/DUT11.txt --eta-newline=1 --eta=always > ${FIO_LOG_DIRECTORY}/${f11} & CURR_PID=$! ; echo "FIO 11 : $CURR_PID" ; for i in {1..300}; do echo $(ps -o psr $CURR_PID) >> ${FIO_LOG_DIRECTORY}/${k} ; sleep 1; done &
-    # numactl --physcpubind=$numa_DUT_12 fio $FIO_DIRECTORY/DUT12.txt --eta-newline=1 --eta=always > ${FIO_LOG_DIRECTORY}/${f12} & CURR_PID=$! ; echo "FIO 12 : $CURR_PID" ; for i in {1..300}; do echo $(ps -o psr $CURR_PID) >> ${FIO_LOG_DIRECTORY}/${l} ; sleep 1; done &
+    numactl --physcpubind=$numa_DUT_9 fio $FIO_DIRECTORY/DUT9.txt --eta-newline=1 --eta=always > ${FIO_LOG_DIRECTORY}/${f9} & CURR_PID=$! ; echo "FIO 9 : $CURR_PID" ; for i in {1..300}; do echo $(ps -o psr $CURR_PID) >> ${FIO_LOG_DIRECTORY}/${i} ; sleep 1; done &
+    numactl --physcpubind=$numa_DUT_10 fio $FIO_DIRECTORY/DUT10.txt --eta-newline=1 --eta=always > ${FIO_LOG_DIRECTORY}/${f10} & CURR_PID=$! ; echo "FIO 10 : $CURR_PID" ; for i in {1..300}; do echo $(ps -o psr $CURR_PID) >> ${FIO_LOG_DIRECTORY}/${j} ; sleep 1; done &
+    numactl --physcpubind=$numa_DUT_11 fio $FIO_DIRECTORY/DUT11.txt --eta-newline=1 --eta=always > ${FIO_LOG_DIRECTORY}/${f11} & CURR_PID=$! ; echo "FIO 11 : $CURR_PID" ; for i in {1..300}; do echo $(ps -o psr $CURR_PID) >> ${FIO_LOG_DIRECTORY}/${k} ; sleep 1; done &
+    numactl --physcpubind=$numa_DUT_12 fio $FIO_DIRECTORY/DUT12.txt --eta-newline=1 --eta=always > ${FIO_LOG_DIRECTORY}/${f12} & CURR_PID=$! ; echo "FIO 12 : $CURR_PID" ; for i in {1..300}; do echo $(ps -o psr $CURR_PID) >> ${FIO_LOG_DIRECTORY}/${l} ; sleep 1; done &
     
-    # numactl --physcpubind=$numa_DUT_13 fio $FIO_DIRECTORY/DUT13.txt --eta-newline=1 --eta=always > ${FIO_LOG_DIRECTORY}/${f13} & CURR_PID=$! ; echo "FIO 13 : $CURR_PID" ; for i in {1..300}; do echo $(ps -o psr $CURR_PID) >> ${FIO_LOG_DIRECTORY}/${m} ; sleep 1; done &
-    # numactl --physcpubind=$numa_DUT_14 fio $FIO_DIRECTORY/DUT14.txt --eta-newline=1 --eta=always > ${FIO_LOG_DIRECTORY}/${f14} & CURR_PID=$! ; echo "FIO 14 : $CURR_PID" ; for i in {1..300}; do echo $(ps -o psr $CURR_PID) >> ${FIO_LOG_DIRECTORY}/${n} ; sleep 1; done &
-    # numactl --physcpubind=$numa_DUT_15 fio $FIO_DIRECTORY/DUT15.txt --eta-newline=1 --eta=always > ${FIO_LOG_DIRECTORY}/${f15} & CURR_PID=$! ; echo "FIO 15 : $CURR_PID" ; for i in {1..300}; do echo $(ps -o psr $CURR_PID) >> ${FIO_LOG_DIRECTORY}/${o} ; sleep 1; done &
-    # numactl --physcpubind=$numa_DUT_16 fio $FIO_DIRECTORY/DUT16.txt --eta-newline=1 --eta=always > ${FIO_LOG_DIRECTORY}/${f16} & CURR_PID=$! ; echo "FIO 16 : $CURR_PID" ; for i in {1..300}; do echo $(ps -o psr $CURR_PID) >> ${FIO_LOG_DIRECTORY}/${p} ; sleep 1; done &
+    numactl --physcpubind=$numa_DUT_13 fio $FIO_DIRECTORY/DUT13.txt --eta-newline=1 --eta=always > ${FIO_LOG_DIRECTORY}/${f13} & CURR_PID=$! ; echo "FIO 13 : $CURR_PID" ; for i in {1..300}; do echo $(ps -o psr $CURR_PID) >> ${FIO_LOG_DIRECTORY}/${m} ; sleep 1; done &
+    numactl --physcpubind=$numa_DUT_14 fio $FIO_DIRECTORY/DUT14.txt --eta-newline=1 --eta=always > ${FIO_LOG_DIRECTORY}/${f14} & CURR_PID=$! ; echo "FIO 14 : $CURR_PID" ; for i in {1..300}; do echo $(ps -o psr $CURR_PID) >> ${FIO_LOG_DIRECTORY}/${n} ; sleep 1; done &
+    numactl --physcpubind=$numa_DUT_15 fio $FIO_DIRECTORY/DUT15.txt --eta-newline=1 --eta=always > ${FIO_LOG_DIRECTORY}/${f15} & CURR_PID=$! ; echo "FIO 15 : $CURR_PID" ; for i in {1..300}; do echo $(ps -o psr $CURR_PID) >> ${FIO_LOG_DIRECTORY}/${o} ; sleep 1; done &
+    numactl --physcpubind=$numa_DUT_16 fio $FIO_DIRECTORY/DUT16.txt --eta-newline=1 --eta=always > ${FIO_LOG_DIRECTORY}/${f16} & CURR_PID=$! ; echo "FIO 16 : $CURR_PID" ; for i in {1..300}; do echo $(ps -o psr $CURR_PID) >> ${FIO_LOG_DIRECTORY}/${p} ; sleep 1; done &
     
     sleep 125
     
