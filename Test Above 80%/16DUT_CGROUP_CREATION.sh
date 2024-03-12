@@ -8,14 +8,14 @@ CGROUP_NAME5="DUT5"
 CGROUP_NAME6="DUT6"
 CGROUP_NAME7="DUT7"
 CGROUP_NAME8="DUT8"
-# CGROUP_NAME9="DUT9"
-# CGROUP_NAME10="DUT10"
-# CGROUP_NAME11="DUT11"
-# CGROUP_NAME12="DUT12"
-# CGROUP_NAME13="DUT13"
-# CGROUP_NAME14="DUT14"
-# CGROUP_NAME15="DUT15"
-# CGROUP_NAME16="DUT16"
+CGROUP_NAME9="DUT9"
+CGROUP_NAME10="DUT10"
+CGROUP_NAME11="DUT11"
+CGROUP_NAME12="DUT12"
+CGROUP_NAME13="DUT13"
+CGROUP_NAME14="DUT14"
+CGROUP_NAME15="DUT15"
+CGROUP_NAME16="DUT16"
 
 
 MOUNT_POINT="/sys/fs/cgroup"
@@ -34,14 +34,14 @@ chmod a+rx $CGROUP_NAME5
 chmod a+rx $CGROUP_NAME6
 chmod a+rx $CGROUP_NAME7
 chmod a+rx $CGROUP_NAME8
-# chmod a+rx $CGROUP_NAME9
-# chmod a+rx $CGROUP_NAME10
-# chmod a+rx $CGROUP_NAME11
-# chmod a+rx $CGROUP_NAME12
-# chmod a+rx $CGROUP_NAME13
-# chmod a+rx $CGROUP_NAME14
-# chmod a+rx $CGROUP_NAME15
-# chmod a+rx $CGROUP_NAME16
+chmod a+rx $CGROUP_NAME9
+chmod a+rx $CGROUP_NAME10
+chmod a+rx $CGROUP_NAME11
+chmod a+rx $CGROUP_NAME12
+chmod a+rx $CGROUP_NAME13
+chmod a+rx $CGROUP_NAME14
+chmod a+rx $CGROUP_NAME15
+chmod a+rx $CGROUP_NAME16
 
 echo "Mounting cgroups at $MOUNT_POINT/$CGROUP_NAME1"
 echo "Mounting cgroups at $MOUNT_POINT/$CGROUP_NAME2"
@@ -51,14 +51,14 @@ echo "Mounting cgroups at $MOUNT_POINT/$CGROUP_NAME5"
 echo "Mounting cgroups at $MOUNT_POINT/$CGROUP_NAME6"
 echo "Mounting cgroups at $MOUNT_POINT/$CGROUP_NAME7"
 echo "Mounting cgroups at $MOUNT_POINT/$CGROUP_NAME8"
-# echo "Mounting cgroups at $MOUNT_POINT/$CGROUP_NAME9"
-# echo "Mounting cgroups at $MOUNT_POINT/$CGROUP_NAME10"
-# echo "Mounting cgroups at $MOUNT_POINT/$CGROUP_NAME11"
-# echo "Mounting cgroups at $MOUNT_POINT/$CGROUP_NAME12"
-# echo "Mounting cgroups at $MOUNT_POINT/$CGROUP_NAME13"
-# echo "Mounting cgroups at $MOUNT_POINT/$CGROUP_NAME14"
-# echo "Mounting cgroups at $MOUNT_POINT/$CGROUP_NAME15"
-# echo "Mounting cgroups at $MOUNT_POINT/$CGROUP_NAME16"
+echo "Mounting cgroups at $MOUNT_POINT/$CGROUP_NAME9"
+echo "Mounting cgroups at $MOUNT_POINT/$CGROUP_NAME10"
+echo "Mounting cgroups at $MOUNT_POINT/$CGROUP_NAME11"
+echo "Mounting cgroups at $MOUNT_POINT/$CGROUP_NAME12"
+echo "Mounting cgroups at $MOUNT_POINT/$CGROUP_NAME13"
+echo "Mounting cgroups at $MOUNT_POINT/$CGROUP_NAME14"
+echo "Mounting cgroups at $MOUNT_POINT/$CGROUP_NAME15"
+echo "Mounting cgroups at $MOUNT_POINT/$CGROUP_NAME16"
 
 
 echo "Aviable controller types:"
@@ -132,14 +132,14 @@ echo $CORE_VAL5 > /sys/fs/cgroup/$CGROUP_NAME5/cpuset.cpus
 echo $CORE_VAL6 > /sys/fs/cgroup/$CGROUP_NAME6/cpuset.cpus
 echo $CORE_VAL7 > /sys/fs/cgroup/$CGROUP_NAME7/cpuset.cpus
 echo $CORE_VAL8 > /sys/fs/cgroup/$CGROUP_NAME8/cpuset.cpus
-# echo $CORE_VAL9 > /sys/fs/cgroup/$CGROUP_NAME9/cpuset.cpus
-# echo $CORE_VAL10 > /sys/fs/cgroup/$CGROUP_NAME10/cpuset.cpus
-# echo $CORE_VAL11 > /sys/fs/cgroup/$CGROUP_NAME11/cpuset.cpus
-# echo $CORE_VAL12 > /sys/fs/cgroup/$CGROUP_NAME12/cpuset.cpus
-# echo $CORE_VAL13 > /sys/fs/cgroup/$CGROUP_NAME13/cpuset.cpus
-# echo $CORE_VAL14 > /sys/fs/cgroup/$CGROUP_NAME14/cpuset.cpus
-# echo $CORE_VAL15 > /sys/fs/cgroup/$CGROUP_NAME15/cpuset.cpus
-# echo $CORE_VAL16 > /sys/fs/cgroup/$CGROUP_NAME16/cpuset.cpus
+echo $CORE_VAL9 > /sys/fs/cgroup/$CGROUP_NAME9/cpuset.cpus
+echo $CORE_VAL10 > /sys/fs/cgroup/$CGROUP_NAME10/cpuset.cpus
+echo $CORE_VAL11 > /sys/fs/cgroup/$CGROUP_NAME11/cpuset.cpus
+echo $CORE_VAL12 > /sys/fs/cgroup/$CGROUP_NAME12/cpuset.cpus
+echo $CORE_VAL13 > /sys/fs/cgroup/$CGROUP_NAME13/cpuset.cpus
+echo $CORE_VAL14 > /sys/fs/cgroup/$CGROUP_NAME14/cpuset.cpus
+echo $CORE_VAL15 > /sys/fs/cgroup/$CGROUP_NAME15/cpuset.cpus
+echo $CORE_VAL16 > /sys/fs/cgroup/$CGROUP_NAME16/cpuset.cpus
 
 
 
